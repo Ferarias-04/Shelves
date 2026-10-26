@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="shelves_primary">#8FD1C2</color>
+    <color name="shelves_on_primary">#00382E</color>
+    <color name="shelves_secondary">@color/icy_blue</color>
+    <color name="shelves_on_secondary">@color/midnight_violet</color>
+    <color name="shelves_background">#24141B</color>
+    <color name="shelves_surface">@color/midnight_violet</color>
+    <color name="shelves_on_surface">@color/crema</color>
+    <color name="shelves_text_secondary">#D9CCC0</color>
+    <color name="shelves_error">#F2B8B5</color>
+    <color name="shelves_on_error">#601410</color>
+</resources>

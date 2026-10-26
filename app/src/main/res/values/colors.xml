@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Paleta Shelves -->
     <color name="midnight_violet">#3C222D</color>
     <color name="icy_blue">#B0E0FD</color>
     <color name="crema">#FFF6E3</color>
     <color name="verde">#397367</color>
+    <color name="white">#FFFFFF</color>
+
+    <!-- Colores por función (modo claro) -->
+    <color name="shelves_primary">@color/verde</color>
+    <color name="shelves_on_primary">@color/white</color>
+    <color name="shelves_secondary">@color/icy_blue</color>
+    <color name="shelves_on_secondary">@color/midnight_violet</color>
+    <color name="shelves_background">@color/crema</color>
+    <color name="shelves_surface">@color/white</color>
+    <color name="shelves_on_surface">@color/midnight_violet</color>
+    <color name="shelves_text_secondary">#6B5560</color>
+    <color name="shelves_error">#B3261E</color>
+    <color name="shelves_on_error">@color/white</color>
 </resources>
