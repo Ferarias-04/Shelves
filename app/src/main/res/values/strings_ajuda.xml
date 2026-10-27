@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- capçalera -->
+    <string name="ajuda titol">Com funciona Shelves</string>
+    <string name="ajuda_subtitol">Tot el que pots fer a l\'app, apartat per apartat</string>
+    <!-- home -->
+    <string name="ajuda_home_titol">Home</string>
+    <string name="ajuda_home_desc">Mira el progrés del llibre que estàs llegint, la teva ratxa de dies llegint i els llibres més llegits de la setmana.</string>
+    <!-- llibreria -->
+    <string name="ajuda_llibreria_titol">Llibreria</string>
+    <string name="ajuda_llibreria_desc">Organitza els teus llibres en tres llistes: Llegint, Llegits i Vull llegir.</string>
+    <!-- editar llibre -->
+    <string name="ajuda_editar_titol">Editar un llibre</string>
+    <string name="ajuda_editar_desc">Actualitza per quina pàgina vas, posa-li una nota, escriu una resenya o canvia\'l de llista.</string>
+    <!-- usuari -->
+    <string name="ajuda_usuari_titol">Usuari</string>
+    <string name="ajuda_usuari_desc">Consulta les teves estadístiques de la setmana, el mes i l\'any, i segueix els teus amics pel seu nom d\'usuari.</string>
+    <!-- configuració -->
+    <string name="ajuda_config_titol">Configuració</string>
+    <string name="ajuda_confic_desc">Activa el mode fosc o d\'alt contrast, canvia la mida del text, l\'idioma i la privacitat del teu perfil</string>
+    <!-- peu -->
+    <string name="ajuda_tornar">Entesos</string>
+</resources>
