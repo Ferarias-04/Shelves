@@ -6,39 +6,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
-    android:background="@color/crema"
+    android:background="@color/icy_blue"
     >
 
     <ImageView
-        android:id="@+id/imgLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/imglogin"
+        android:layout_width="300dp"
+        android:layout_height="280dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/fondo_login"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/logo_shelves"
+        app:layout_constraintTop_toBottomOf="@id/imglogin"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/textIntro"
-        />
+        android:layout_margin="12dp"/>
 
     <LinearLayout
         android:id="@+id/textIntro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/imgLogo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:orientation="vertical"
-        android:gravity="center"
+        android:layout_marginTop="12dp"
         >
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
+            android:textAlignment="center"
             android:layout_height="wrap_content"
-            android:text="Welcome to"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="shelves"
+            android:text="Bienvenidos a Shelves, donde todos los libros tienen sus historias y cada lector puede vivirlas "
             />
     </LinearLayout>
     <LinearLayout
@@ -52,18 +59,18 @@
         android:focusableInTouchMode="true"
         >
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="250dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nombre de usuario"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            app:layout_constraintEnd_toEndOf="parent">
+            android:hint="User Name"
+            app:expandedHintEnabled="false"
+            app:placeholderText="User Name"
+            app:endIconMode="clear_text"
+            android:layout_marginTop="12dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:maxLines="1" />
-
+                android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="250dp"
