@@ -5,9 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
     android:background="@color/icy_blue"
-    >
+    tools:context=".LoginActivity">
 
     <ImageView
         android:id="@+id/imglogin"
@@ -16,89 +15,117 @@
         android:contentDescription="@string/login_imagen"
         android:scaleType="centerCrop"
         android:src="@mipmap/fondo_login"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imgLogo"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:layout_margin="12dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/logo"
         android:scaleType="fitCenter"
         android:src="@drawable/logo_shelves"
-        app:layout_constraintTop_toBottomOf="@id/imglogin"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="12dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imglogin" />
 
-    <LinearLayout
+    <TextView
         android:id="@+id/textIntro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/imgLogo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:orientation="vertical"
         android:layout_marginTop="12dp"
-        >
-        <TextView
-            android:layout_width="250dp"
-            android:textAlignment="center"
-            android:layout_height="wrap_content"
-            android:text="@string/login_descripcion"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/textIntro"
-        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center"
+        android:maxWidth="250dp"
+        android:text="@string/login_descripcion"
+        android:textAlignment="center"
+        android:textColor="@color/midnight_violet"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgLogo" />
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        >
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textIntro">
+
+        <!-- Usuario -->
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Shelves.TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:hint="@string/login_user_name"
-            app:expandedHintEnabled="false"
-            app:placeholderText="User Name"
+            android:textColorHint="@color/midnight_violet"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="@color/midnight_violet"
             app:endIconMode="clear_text"
-            android:layout_marginTop="12dp">
+            app:endIconTint="@color/midnight_violet"
+            app:expandedHintEnabled="false"
+            app:placeholderText="@string/login_user_name"
+            app:placeholderTextColor="#6B5560">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etUsuario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:autofillHints="username"
+                android:inputType="text"
+                android:textColor="@color/midnight_violet"
+                android:textColorHint="#6B5560"
+                tools:targetApi="o" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Contraseña -->
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="250dp"
+            style="@style/Widget.Shelves.TextInputLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:hint="@string/login_contrasena"
+            android:textColorHint="@color/midnight_violet"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="@color/midnight_violet"
             app:endIconMode="password_toggle"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:layout_marginTop="12dp">
+            app:endIconTint="@color/midnight_violet"
+            app:expandedHintEnabled="false"
+            app:placeholderText="@string/login_contrasena"
+            app:placeholderTextColor="#6B5560">
+
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etContrasena"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword" />
+                android:autofillHints="password"
+                android:inputType="textPassword"
+                android:textColor="@color/midnight_violet"
+                android:textColorHint="@color/midnight_violet"
+                tools:ignore="TextContrastCheck"
+                tools:targetApi="o" />
         </com.google.android.material.textfield.TextInputLayout>
-        <Button
-            android:layout_width="250dp"
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogin"
+            style="@style/Widget.Shelves.Button"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/login_login"
             android:layout_marginTop="15dp"
-            />
-        <Button
-            android:layout_width="250dp"
+            android:text="@string/login_login" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSignUp"
+            style="@style/Widget.Shelves.Button"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/login_sign_up"
             android:backgroundTint="@color/white"
-            android:textColor="@color/midnight_violet"
-            />
+            android:text="@string/login_sign_up"
+            android:textColor="@color/midnight_violet" />
 
     </LinearLayout>
 

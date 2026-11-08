@@ -82,4 +82,5 @@
     <string name="registre_confirma_contrasena">Confirma contraseña</string>
     <string name="registre_get_started">Get started!</string>
     <string name="registre_volver_a_login">Ya tienes cuenta? Inicia sesion</string>
+    <string name="registre_email_ejemplo">ejemplo@gmail.com</string>
 </resources>
