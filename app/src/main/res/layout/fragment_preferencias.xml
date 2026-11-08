@@ -33,7 +33,7 @@
             android:textColor="?attr/colorOnSurfaceVariant"
             android:textSize="13sp" />
 
-        <!-- ===== APARIENCIA ===== -->
+        <!-- apariencia -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -133,7 +133,7 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- ===== IDIOMA ===== -->
+        <!--idioma -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -187,7 +187,7 @@
             </RadioGroup>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- ===== PRIVACIDAD ===== -->
+        <!--  privacidad  -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="biblioteca_titulo">Mi biblioteca</string>
+    <string name="biblioteca_buscar">Buscar por título o autor</string>
+
+    <string name="biblioteca_leyendo">Leyendo</string>
+    <string name="biblioteca_leidos">Leídos</string>
+    <string name="biblioteca_quiero_leer">Quiero leer</string>
+
+    <string name="biblioteca_portada">Portada del libro</string>
+
+    <!-- Barra de edición -->
+    <string name="edicion_mover">Mover a otra lista</string>
+    <string name="edicion_anadir">Añadir libro</string>
+    <string name="edicion_eliminar">Eliminar libro</string>
+</resources>
