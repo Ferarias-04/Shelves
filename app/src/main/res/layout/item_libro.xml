@@ -19,9 +19,13 @@
             android:id="@+id/imgPortada"
             android:layout_width="64dp"
             android:layout_height="96dp"
-            android:contentDescription="@string/biblioteca_portada"
+            android:contentDescription="@null"
+            android:importantForAccessibility="no"
             android:scaleType="centerCrop"
             android:src="@color/gris_portada"
+            android:padding="0.5dp"
+            app:strokeColor="?attr/colorOnSurface"
+            app:strokeWidth="1dp"
             app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Small" />
 
         <LinearLayout

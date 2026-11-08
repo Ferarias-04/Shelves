@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="editar_titulo">Editar libro</string>
+
+    <string name="editar_progreso">Progreso</string>
+    <string name="editar_pagina_actual">Página actual</string>
+
+    <string name="editar_valoracion">Tu valoración</string>
+    <string name="editar_valoracion_desc">Valoración del libro</string>
+    <string name="editar_resena">Escribe una reseña</string>
+
+    <string name="editar_lista">Lista</string>
+    <string name="editar_guardar">Guardar cambios</string>
+</resources>
