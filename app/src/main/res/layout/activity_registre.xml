@@ -48,7 +48,7 @@
             android:layout_gravity="top|center_horizontal"
             android:layout_marginTop="50dp"
             android:adjustViewBounds="true"
-            android:contentDescription="Shelves"
+            android:contentDescription="@string/logo"
             android:src="@drawable/logo_shelves" />
     </FrameLayout>
 
@@ -68,7 +68,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="User Name"
+            android:hint="@string/login_user_name"
             app:expandedHintEnabled="false"
             app:placeholderText="User Name"
             app:endIconMode="clear_text"
@@ -83,7 +83,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name"
+            android:hint="@string/registre_name"
             app:expandedHintEnabled="false"
             app:placeholderText="Name"
             app:endIconMode="clear_text"
@@ -98,7 +98,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:hint="Apellido"
+            android:hint="@string/registre_apellido"
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="12dp"
@@ -114,7 +114,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
+            android:hint="@string/registre_email"
             app:expandedHintEnabled="false"
             app:placeholderText="ejemplo@gmail.com"
             app:endIconMode="clear_text"
@@ -129,7 +129,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:hint="Contraseña"
+            android:hint="@string/login_contrasena"
             app:endIconMode="password_toggle"
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_marginTop="12dp">
@@ -143,7 +143,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:hint="Confirma contraseña"
+            android:hint="@string/registre_confirma_contrasena"
             app:endIconMode="password_toggle"
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_marginTop="12dp">
@@ -157,14 +157,14 @@
         <Button
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:text="Login"
+            android:text="@string/registre_get_started"
             android:layout_marginTop="15dp"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Ya tienes cuenta? Inicia sesion"
+            android:text="@string/registre_volver_a_login"
 
             />
     </LinearLayout>

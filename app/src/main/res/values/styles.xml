@@ -76,5 +76,14 @@
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">?attr/colorOnBackground</item>
     </style>
+    <!-- cantos redondos para los libros de usuario -->
+    <style name="RoundedCover" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
 
+    <style name="RoundedSpine" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">4dp</item>
+    </style>
 </resources>

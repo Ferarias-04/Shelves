@@ -1,3 +1,85 @@
 <resources>
     <string name="app_name">Shelves</string>
+    <!-- textos home-->
+    <string name="boton_libros">Libros</string>
+    <string name="boton_perfil">Perfil</string>
+    <string name="boton_home">Inicio</string>
+    <string name="logo">Shelves</string>
+    <string name="menu">Menu</string>
+    <string name="fg_home_bienvenida">Bienvenida un día mas Fer!</string>
+    <string name="fg_home_fecha">Jueves, 12 de Noviembre</string>
+    <string name="fg_home_avatar">Avatar</string>
+    <string name="fg_home_lectura_hoy">Has leído hoy?</string>
+    <string name="fg_home_racha">Racha</string>
+    <string name="fg_home_3">3</string>
+    <string name="fg_home_dias_de_racha">DIAS DE RACHA!</string>
+    <string name="fg_home_top_racha">racha personal mas alta:15</string>
+    <string name="fg_home_lunes">L</string>
+    <string name="fg_home_martes">M</string>
+    <string name="fg_home_miercoles">X</string>
+    <string name="fg_home_jueves">J</string>
+    <string name="fg_home_viernes">V</string>
+    <string name="fg_home_sabado">S</string>
+    <string name="fg_home_domingo">D</string>
+    <string name="fg_home_afirma_leer">He leído hoy</string>
+    <string name="fg_home_opciones_lectura">•••</string>
+    <string name="fg_home_lectura_actual">Lectura actual</string>
+    <string name="fg_home_frase_del_mes">Frase del mes:</string>
+    <string name="fg_home_lectura_del_mes">Es posible domesticar a una serpiente para que coma de tu mano, pero nadie le va a quitar el gusto por morder</string>
+    <string name="fg_home_escritora_del_mes">-Cita de MADELINE MILLER</string>
+    <string name="fg_home_descubre_el_libro">Descubre el libro</string>
+    <string name="fg_home_libros_top_mes">Libros mas leídos este mes:</string>
+    <string name="fg_home_genero_general">general</string>
+    <string name="fg_home_genero_terror">terror</string>
+    <string name="fg_home_genero_romance">romance</string>
+    <string name="fg_home_genero_fantasia">fantasia</string>
+    <string name="fg_home_genero_distopia">distopía</string>
+    <string name="fg_home_portada">Portada</string>
+
+    <!-- textos user fg-->
+    <string name="fg_user_foto_de_perfil">Foto de perfil</string>
+    <string name="fg_user_nombreUser">Fer 📸</string>
+    <string name="fg_user_descripcion_user">Enamorada de los libros de misterio</string>
+    <string name="fg_user_editar">editar</string>
+    <string name="fg_user_ver_seguidos">ver seguidos</string>
+    <string name="fg_user__icono_racha">Racha</string>
+    <string name="fg_user_goal_de_lectura">Goal de lectura:</string>
+    <string name="fg_user_libros_año">Libros al año</string>
+    <string name="fg_user_numeros_libros_año">5 de 10</string>
+    <string name="fg_user_libro_leido">Libro leído</string>
+    <string name="fg_user_tus_reseñas">Tus reseñas</string>
+    <string name="fg_user_rango_reseñas">Rango de reseñas:</string>
+    <string name="fg_user_1_estrella">1✦</string>
+    <string name="fg_user_1_5_estrella">1,5✦</string>
+    <string name="fg_user_2_estrella">2✦</string>
+    <string name="fg_user_2_5_estrellas">2,5✦</string>
+    <string name="fg_user_3_estrella">3✦</string>
+    <string name="fg_user_3_5_estrellas">3,5✦</string>
+    <string name="fg_user_4_estrella">4✦</string>
+    <string name="fg_user_4_5_estrellas">4,5✦</string>
+    <string name="fg_user_5_estrella">5✦</string>
+    <string name="fg_user_6_estrella">6✦</string>
+
+    <!-- textos menu -->
+    <string name="fg_menu_modo_noche">modo_noche</string>
+    <string name="fg_menu_preferencias">preferencias</string>
+    <string name="fg_menu_ayuda">ayuda</string>
+    <string name="fg_menu_escribenos">Escribenos!</string>
+    <string name="fg_menu_instagram">instagram</string>
+    <string name="fg_menu_threads">threads</string>
+    <string name="fg_menu_email">email</string>
+
+    <!--login textos-->
+    <string name="login_imagen">imagen</string>
+    <string name="login_descripcion">Bienvenidos a Shelves, donde todos los libros tienen sus historias y cada lector puede vivirlas</string>
+    <string name="login_user_name">User Name</string>
+    <string name="login_contrasena">Contraseña</string>
+    <string name="login_login">Login</string>
+    <string name="login_sign_up">Sign Up</string>
+    <string name="registre_name">Name</string>
+    <string name="registre_apellido">Apellido</string>
+    <string name="registre_email">Email</string>
+    <string name="registre_confirma_contrasena">Confirma contraseña</string>
+    <string name="registre_get_started">Get started!</string>
+    <string name="registre_volver_a_login">Ya tienes cuenta? Inicia sesion</string>
 </resources>
