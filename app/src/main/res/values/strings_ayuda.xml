@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ayuda_titulo">Cómo funciona Shelves</string>
+    <string name="ayuda_subtitulo">Todo lo que puedes hacer en la app, apartado por apartado</string>
+
+    <string name="ayuda_inicio_titulo">Inicio</string>
+    <string name="ayuda_inicio_desc">Mira el progreso del libro que estás leyendo, tu racha de días leyendo y los libros más leídos del mes.</string>
+
+    <string name="ayuda_biblioteca_titulo">Biblioteca</string>
+    <string name="ayuda_biblioteca_desc">Organiza tus libros en tres listas: Leyendo, Leídos y Quiero leer.</string>
+
+    <string name="ayuda_editar_titulo">Editar un libro</string>
+    <string name="ayuda_editar_desc">Actualiza la página por la que vas, ponle nota, escribe una reseña o cámbialo de lista.</string>
+
+    <string name="ayuda_perfil_titulo">Perfil</string>
+    <string name="ayuda_perfil_desc">Consulta tus estadísticas de la semana, el mes y el año, y sigue a tus amigos por su nombre de usuario.</string>
+
+    <string name="ayuda_preferencias_titulo">Preferencias</string>
+    <string name="ayuda_preferencias_desc">Activa el modo oscuro o el alto contraste, cambia el tamaño del texto, el idioma y la privacidad de tu perfil.</string>
+
+    <string name="ayuda_entendido">Entendido</string>
+</resources>

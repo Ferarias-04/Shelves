@@ -1,8 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Base.Theme.Shelves" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/shelves_primary</item>
+        <item name="colorOnPrimary">@color/shelves_on_primary</item>
+        <item name="colorSecondary">@color/shelves_secondary</item>
+        <item name="colorOnSecondary">@color/shelves_on_secondary</item>
+        <item name="colorSecondaryContainer">@color/shelves_secondary</item>
+        <item name="colorOnSecondaryContainer">@color/shelves_on_secondary</item>
+        <item name="android:colorBackground">@color/shelves_background</item>
+        <item name="colorOnBackground">@color/shelves_on_surface</item>
+        <item name="colorSurface">@color/shelves_surface</item>
+        <item name="colorOnSurface">@color/shelves_on_surface</item>
+        <item name="colorOnSurfaceVariant">@color/shelves_text_secondary</item>
+        <item name="colorError">@color/shelves_error</item>
+        <item name="colorOnError">@color/shelves_on_error</item>
     </style>
 
     <style name="Theme.Shelves" parent="Base.Theme.Shelves" />
