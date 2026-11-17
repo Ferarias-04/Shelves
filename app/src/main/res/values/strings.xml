@@ -90,4 +90,7 @@
     <!-- login y registro-->
     <string name="error_campo_obligatorio">Este campo es obligatorio</string>
     <string name="error_contrasenas">Las contraseñas no coinciden</string>
+
+    <!-- hamburguesa-->
+    <string name="menu_proximamente">Próximamente</string>
 </resources>
