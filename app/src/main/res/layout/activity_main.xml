@@ -11,17 +11,22 @@
         android:id="@+id/header"
         android:layout_width="0dp"
         android:layout_height="64dp"
-        android:paddingStart="20dp"
+        android:paddingStart="12dp"
         android:paddingEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:id="@+id/btnMenu"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_gravity="start|center_vertical"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
             android:contentDescription="@string/menu"
+            android:focusable="true"
+            android:padding="8dp"
             android:src="@drawable/menu" />
 
         <ImageView
@@ -68,6 +73,7 @@
             app:cardElevation="6dp">
 
             <ImageView
+                android:id="@+id/icHome"
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:layout_gravity="center"
@@ -88,6 +94,7 @@
             app:cardElevation="6dp">
 
             <ImageView
+                android:id="@+id/icLibrary"
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:layout_gravity="center"
@@ -107,6 +114,7 @@
             app:cardElevation="6dp">
 
             <ImageView
+                android:id="@+id/icProfile"
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:layout_gravity="center"

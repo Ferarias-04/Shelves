@@ -1,11 +1,13 @@
 package com.shelves.app
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,5 +18,30 @@ class LoginActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val etUsuario = findViewById<EditText>(R.id.etUsuario)
+        val etContrasena = findViewById<EditText>(R.id.etContrasena)
+
+        //Entrar: si los campos están rellenados, abrimos la app
+        findViewById<Button>(R.id.btnLogin).setOnClickListener {
+            if(camposRellenos(etUsuario, etContrasena)) {
+                startActivity(Intent(this, MainActivity::class.java))
+                finish() //al pulsar "atras" desde la app no se vuelve al login
+            }
+        }
+        //ir al registro
+        findViewById<Button>(R.id.btnSignUp).setOnClickListener {
+            startActivity(Intent(this, RegistreActivity::class.java))
+        }
+    }
+    //Marca en rojo los campos vacíos y devuelve true si están rellenados
+    private fun camposRellenos(vararg campos: EditText): Boolean {
+        var ok = true
+        for(campo in campos) {
+            if(campo.text.isNullOrBlank()) {
+                campo.error = getString(R.string.error_campo_obligatorio)
+                ok = false
+            }
+        }
+        return ok
     }
 }
