@@ -13,4 +13,29 @@
     <string name="edicion_mover">Mover a otra lista</string>
     <string name="edicion_anadir">Añadir libro</string>
     <string name="edicion_eliminar">Eliminar libro</string>
+
+    <!-- Fila de libro -->
+    <string name="libro_porcentaje">%1$d%%</string>
+    <string name="libro_paginas">Pág. %1$d de %2$d</string>
+    <string name="libro_desc">%1$s, de %2$s. Leído un %3$d%%</string>
+    <string name="libro_accion_editar">Editar</string>
+    <string name="libro_accion_seleccionar">Seleccionar</string>
+
+    <!-- Editar -->
+    <string name="editar_de_paginas">de %1$d</string>
+    <string name="toast_guardado">Cambios guardados</string>
+
+    <!-- Diálogos (5B) -->
+    <string name="cancelar">Cancelar</string>
+    <string name="anadir">Añadir</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="anadir_titulo">Título</string>
+    <string name="anadir_autor">Autor</string>
+    <string name="anadir_paginas">Número de páginas</string>
+    <string name="error_titulo_obligatorio">El título es obligatorio</string>
+    <string name="eliminar_titulo">¿Eliminar libro?</string>
+    <string name="eliminar_mensaje">Se quitará «%1$s» de tu biblioteca.</string>
+    <string name="toast_anadido">«%1$s» añadido a %2$s</string>
+    <string name="toast_movido">«%1$s» movido a %2$s</string>
+    <string name="toast_eliminado">«%1$s» eliminado</string>
 </resources>
