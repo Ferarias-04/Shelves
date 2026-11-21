@@ -77,10 +77,10 @@
             android:layout_width="180dp"
             android:layout_height="48dp"
             android:layout_marginTop="12dp"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="?attr/colorSurface"
             android:fontFamily="serif"
             android:text="@string/fg_menu_ayuda"
-            android:textColor="@color/black"
+            android:textColor="?attr/colorOnSurface"
             android:textSize="14sp"
             app:cornerRadius="14dp"
             app:strokeColor="@color/midnight_violet" />

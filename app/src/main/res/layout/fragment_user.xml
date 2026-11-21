@@ -88,7 +88,7 @@
                         android:text="@string/fg_user_editar"
                         android:textSize="11sp"
                         app:cornerRadius="14dp"
-                        app:strokeColor="@color/midnight_violet" />
+                        app:strokeColor="?attr/colorOnSurface" />
 
                     <TextView
                         android:id="@+id/txtFollowing"
@@ -107,10 +107,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:cardBackgroundColor="@color/white"
+            app:cardBackgroundColor="?attr/colorSurface"
             app:cardCornerRadius="12dp"
             app:cardElevation="0dp"
-            app:strokeColor="@color/midnight_violet"
+            app:strokeColor="?attr/colorOnSurface"
             app:strokeWidth="1dp">
 
             <LinearLayout
@@ -165,7 +165,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/fg_home_top_racha"
-                                android:textColor="#6B5560"
+                                android:textColor="?attr/colorOnSurfaceVariant"
                                 android:textSize="11sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -184,7 +184,7 @@
                             android:background="@drawable/bg_dia_leido"
                             android:gravity="center"
                             android:text="@string/fg_home_lunes"
-                            android:textColor="@color/icy_blue"
+                            android:textColor="?attr/colorSurface"
                             android:textSize="11sp"
                             android:textStyle="bold" />
 
@@ -195,7 +195,7 @@
                             android:background="@drawable/bg_dia_leido"
                             android:gravity="center"
                             android:text="@string/fg_home_martes"
-                            android:textColor="@color/icy_blue"
+                            android:textColor="?attr/colorSurface"
                             android:textSize="11sp"
                             android:textStyle="bold" />
 
@@ -206,7 +206,7 @@
                             android:background="@drawable/bg_dia_leido"
                             android:gravity="center"
                             android:text="@string/fg_home_miercoles"
-                            android:textColor="@color/icy_blue"
+                            android:textColor="?attr/colorSurface"
                             android:textSize="11sp"
                             android:textStyle="bold" />
 
@@ -217,7 +217,7 @@
                             android:background="@drawable/bg_dia_pendiente"
                             android:gravity="center"
                             android:text="@string/fg_home_jueves"
-                            android:textColor="#6B5560"
+                            android:textColor="?attr/colorOnSurfaceVariant"
                             android:textSize="11sp" />
 
                         <TextView
@@ -227,7 +227,7 @@
                             android:background="@drawable/bg_dia_pendiente"
                             android:gravity="center"
                             android:text="@string/fg_home_viernes"
-                            android:textColor="#6B5560"
+                            android:textColor="?attr/colorOnSurfaceVariant"
                             android:textSize="11sp" />
 
                         <TextView
@@ -237,7 +237,7 @@
                             android:background="@drawable/bg_dia_pendiente"
                             android:gravity="center"
                             android:text="@string/fg_home_sabado"
-                            android:textColor="#6B5560"
+                            android:textColor="?attr/colorOnSurfaceVariant"
                             android:textSize="11sp" />
 
                         <TextView
@@ -246,7 +246,7 @@
                             android:background="@drawable/bg_dia_pendiente"
                             android:gravity="center"
                             android:text="@string/fg_home_domingo"
-                            android:textColor="#6B5560"
+                            android:textColor="?attr/colorOnSurfaceVariant"
                             android:textSize="11sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -312,6 +312,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="monospace"
+                        android:textColor="?attr/colorOnSecondary"
                         android:text="@string/fg_user_libros_año"
                         android:textSize="11sp" />
 
@@ -320,6 +321,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
+                        android:textColor="?attr/colorOnSecondary"
                         android:text="@string/fg_user_numeros_libros_año"
                         android:textSize="36sp" />
                 </LinearLayout>
@@ -345,7 +347,7 @@
                         android:layout_marginEnd="3dp"
                         android:contentDescription="@string/fg_user_libro_leido"
                         android:scaleType="centerCrop"
-                        android:src="@mipmap/circe_portada"
+                        android:src="@drawable/portada_cancion_aquiles"
                         app:shapeAppearanceOverlay="@style/RoundedSpine" />
 
                     <com.google.android.material.imageview.ShapeableImageView
@@ -354,7 +356,7 @@
                         android:layout_marginEnd="3dp"
                         android:contentDescription="@string/fg_user_libro_leido"
                         android:scaleType="centerCrop"
-                        android:src="@mipmap/circe_portada"
+                        android:src="@drawable/portada_orgullo_prejuicio"
                         app:shapeAppearanceOverlay="@style/RoundedSpine" />
 
                     <com.google.android.material.imageview.ShapeableImageView
@@ -363,21 +365,21 @@
                         android:layout_marginEnd="3dp"
                         android:contentDescription="@string/fg_user_libro_leido"
                         android:scaleType="centerCrop"
-                        android:src="@mipmap/circe_portada"
+                        android:src="@drawable/portada_romper_circulo"
                         app:shapeAppearanceOverlay="@style/RoundedSpine" />
 
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="20dp"
                         android:layout_height="70dp"
                         android:layout_marginEnd="3dp"
-                        app:cardBackgroundColor="@color/crema"
+                        app:cardBackgroundColor="?android:attr/colorBackground"
                         app:cardCornerRadius="6dp"
                         app:cardElevation="0dp" />
 
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="20dp"
                         android:layout_height="70dp"
-                        app:cardBackgroundColor="@color/crema"
+                        app:cardBackgroundColor="?android:attr/colorBackground"
                         app:cardCornerRadius="6dp"
                         app:cardElevation="0dp" />
                 </LinearLayout>
@@ -397,10 +399,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            app:cardBackgroundColor="@color/white"
+            app:cardBackgroundColor="?attr/colorSurface"
             app:cardCornerRadius="12dp"
             app:cardElevation="0dp"
-            app:strokeColor="@color/midnight_violet"
+            app:strokeColor="?attr/colorOnSurface"
             app:strokeWidth="1dp">
 
             <LinearLayout
