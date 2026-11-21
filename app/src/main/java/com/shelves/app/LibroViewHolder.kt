@@ -14,6 +14,7 @@ import com.google.android.material.progressindicator.LinearProgressIndicator
 /**
  * Holder: guarda las vistas de UNA fila (item_libro.xml) para no tener que buscarlas
  * con findViewById cada vez que se reutiliza la fila al hacer scroll.
+ * @param itemView vista de la fila ya inflada.
  */
 class LibroViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -29,7 +30,16 @@ class LibroViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val grosorBorde = card.strokeWidth
     private val colorBorde = card.strokeColorStateList
 
-    /** Rellena la fila con los datos de un libro y le asigna los eventos. */
+    /**
+     * Rellena la fila con los datos de un libro y le asigna los eventos. Si el libro está
+     * seleccionado, dibuja el borde grueso y verde. También da a TalkBack la descripción
+     * de la fila y de lo que hace cada gesto.
+     *
+     * @param libro libro que se muestra en la fila.
+     * @param seleccionado true si es el libro marcado con pulsación larga.
+     * @param onClick acción al tocar la fila.
+     * @param onLongClick acción al mantener pulsada la fila.
+     */
     fun bind(
         libro: Libro,
         seleccionado: Boolean,

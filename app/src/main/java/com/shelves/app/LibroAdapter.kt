@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
  * - onBindViewHolder: pone los datos de un libro en una fila ya creada (se reutilizan).
  * - getItemCount: cuántos libros hay.
  * Los eventos se reciben como funciones (lambdas) para que la lógica quede en el Fragment.
+ * @param onClick acción al tocar un libro.
+ * @param onLongClick acción al mantener pulsado un libro.
  */
 class LibroAdapter(
     private val onClick: (Libro) -> Unit,
@@ -35,19 +37,31 @@ class LibroAdapter(
 
     override fun getItemCount(): Int = libros.size
 
-    /** Sustituye todos los libros (al cambiar de chip o buscar). */
+    /**
+     * Sustituye todos los libros (al cambiar de chip o al buscar).
+     *
+     * @param nuevos libros que pasan a mostrarse.
+     */
     @SuppressLint("NotifyDataSetChanged") // cambia la lista entera, así que redibujamos todo
     fun mostrar(nuevos: List<Libro>) {
         libros.clear()
         libros.addAll(nuevos)
         notifyDataSetChanged()
     }
-
+    /**
+     * Añade un libro al final de la lista y anima solo esa fila nueva.
+     *
+     * @param libro libro que se inserta.
+     */
     fun anadir(libro: Libro) {
         libros.add(libro)
         notifyItemInserted(libros.size - 1) // solo se anima la fila nueva
     }
-
+    /**
+     * Quita un libro de la lista con animación. Si no está, no hace nada.
+     *
+     * @param libro libro que se elimina; se localiza por su id.
+     */
     fun eliminar(libro: Libro) {
         val pos = posicionDe(libro)
         if (pos >= 0) {
@@ -55,7 +69,12 @@ class LibroAdapter(
             notifyItemRemoved(pos) // la fila desaparece con animación
         }
     }
-
+    /**
+     * Cambia el libro seleccionado y redibuja solo las dos filas afectadas
+     * (la que se desmarca y la nueva), no toda la lista.
+     *
+     * @param libro libro a seleccionar, o null para quitar la selección.
+     */
     fun seleccionar(libro: Libro?) {
         val anterior = seleccionado
         seleccionado = libro

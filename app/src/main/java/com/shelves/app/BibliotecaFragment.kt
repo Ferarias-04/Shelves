@@ -13,7 +13,13 @@ import com.google.android.material.chip.ChipGroup
 import androidx.core.view.isVisible
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
-/** Pestaña Biblioteca: lista de libros filtrada por lista (chips) y por texto (buscador). */
+/**
+ * Pestaña Biblioteca: muestra los libros del usuario en un RecyclerView.
+ *
+ * Los chips cambian la lista (Leyendo, Leídos, Quiero leer) y el buscador filtra por título
+ * o autor. Al tocar un libro se abre [EditarLibroFragment]. Al mantenerlo pulsado se selecciona
+ * y aparece la barra de edición, desde la que se puede añadir, mover o eliminar libros.
+ */
 class BibliotecaFragment : Fragment(R.layout.fragment_biblioteca) {
 
     private lateinit var adapter: LibroAdapter
@@ -86,7 +92,12 @@ class BibliotecaFragment : Fragment(R.layout.fragment_biblioteca) {
         super.onDestroyView()
     }
 
-    // modo seleccion:
+    /**
+     * Selecciona un libro y muestra la barra de edición. Si ya estaba seleccionado,
+     * sale del modo selección.
+     *
+     * @param libro libro que se ha tocado o mantenido pulsado.
+     */
     private fun seleccionar(libro: Libro) {
         if (adapter.seleccionado?.id == libro.id) {
             salirModoSeleccion()
@@ -108,7 +119,11 @@ class BibliotecaFragment : Fragment(R.layout.fragment_biblioteca) {
         atrasConSeleccion.isEnabled = visible
     }
 
-    //añadir, modificar y eliminar
+    /**
+     * Evento AÑADIR: abre un diálogo para crear un libro nuevo (el título es obligatorio).
+     * Se guarda en [LibrosRepositorio] dentro de la lista que se está viendo y se inserta
+     * en el RecyclerView con animación.
+     */
     private fun dialogoAnadir() {
         val vista = layoutInflater.inflate(R.layout.anadir_libro, null)
         val etTitulo = vista.findViewById<EditText>(R.id.etNuevoTitulo)
@@ -141,6 +156,12 @@ class BibliotecaFragment : Fragment(R.layout.fragment_biblioteca) {
             }
             .show()
     }
+    /**
+     * Evento MODIFICAR: permite cambiar el libro de lista. Como deja de pertenecer a la lista
+     * visible, se quita del RecyclerView. Si pasa a Leídos, se marcan todas sus páginas como leídas.
+     *
+     * @param libro libro seleccionado.
+     */
     private fun dialogoMover(libro: Libro) {
         val listas = ListaLibro.entries
         val nombres = listas.map { getString(it.nombre) }.toTypedArray()
@@ -163,7 +184,12 @@ class BibliotecaFragment : Fragment(R.layout.fragment_biblioteca) {
             .setNegativeButton(R.string.cancelar, null)
             .show()
     }
-    //pedimos confirmacion para eliminar
+    /**
+     * Evento ELIMINAR: pide confirmación y, si se acepta, borra el libro del repositorio
+     * y de la lista.
+     *
+     * @param libro libro seleccionado.
+     */
     private fun dialogoEliminar(libro: Libro) {
         MaterialAlertDialogBuilder(requireContext())
             .setTitle(R.string.eliminar_titulo)

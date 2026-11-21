@@ -14,7 +14,13 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.chip.ChipGroup
 import com.google.android.material.progressindicator.LinearProgressIndicator
 
-/** Pantalla para editar un libro: página actual, valoración, reseña y lista. */
+/**
+ * Pantalla para editar un libro: página actual, valoración, reseña y lista.
+ *
+ * Recibe el id del libro por `arguments` (ver [nuevo]), lo busca en [LibrosRepositorio]
+ * y, al guardar, modifica ese mismo libro. La barra de progreso se recalcula mientras
+ * se escribe la página.
+ */
 class EditarLibroFragment : Fragment(R.layout.fragment_editar_libro) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -81,7 +87,14 @@ class EditarLibroFragment : Fragment(R.layout.fragment_editar_libro) {
         private const val TAG = "EditarLibro"
         private const val ARG_ID = "id_libro"
 
-        /** Crea la pantalla pasándole el id del libro (los fragments reciben datos por "arguments"). */
+        /**
+         * Crea la pantalla para un libro concreto. Los fragments reciben sus datos por
+         * `arguments` y no por el constructor, porque Android los recrea (por ejemplo, al girar
+         * la pantalla) usando el constructor vacío, y los `arguments` sí se conservan.
+         *
+         * @param idLibro identificador del libro que se va a editar.
+         * @return fragment listo para mostrarse.
+         */
         fun nuevo(idLibro: Int) = EditarLibroFragment().apply {
             arguments = bundleOf(ARG_ID to idLibro)
         }

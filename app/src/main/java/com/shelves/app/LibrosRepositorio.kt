@@ -25,6 +25,17 @@ object LibrosRepositorio {
         anadir("Proyecto Hail Mary", "Andy Weir", 496, portada= R.drawable.portada_hil_mary)
     }
 
+    /**
+     * Crea un libro con un id nuevo y lo guarda en el repositorio.
+     *
+     * @param titulo título del libro.
+     * @param autor autor o autora.
+     * @param paginasTotales número de páginas del libro.
+     * @param paginaActual página por la que va leyendo (0 si no ha empezado).
+     * @param lista lista a la que pertenece; por defecto, Quiero leer.
+     * @param portada recurso de la imagen de portada, o null si no tiene.
+     * @return el libro recién creado.
+     */
     fun anadir(
         titulo: String,
         autor: String,
@@ -44,7 +55,13 @@ object LibrosRepositorio {
         libros.removeAll { it.id == libro.id }
     }
 
-    /** Libros de una lista cuyo título o autor contiene el texto buscado. */
+    /**
+     * Devuelve los libros de una lista cuyo título o autor contiene el texto buscado.
+     *
+     * @param lista lista que se está viendo (Leyendo, Leídos o Quiero leer).
+     * @param texto texto del buscador; si está vacío, no se filtra por texto.
+     * @return libros que cumplen las dos condiciones, sin distinguir mayúsculas.
+     */
     fun filtrar(lista: ListaLibro, texto: String): List<Libro> =
         libros.filter {
             it.lista == lista &&

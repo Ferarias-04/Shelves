@@ -9,7 +9,9 @@ import com.google.android.material.chip.ChipGroup
 //pestaña inicio: racha, lectura actual, frase del mes y libros más leídos
 class HomeFragment : Fragment (R.layout.fragment_home){
 
-
+    /**
+     *
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
