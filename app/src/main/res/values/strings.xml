@@ -93,4 +93,6 @@
 
     <!-- hamburguesa-->
     <string name="menu_proximamente">Próximamente</string>
+
+    <string name="top_desc">%1$s, de %2$s</string>
 </resources>
