@@ -68,6 +68,7 @@
     <string name="fg_menu_instagram">instagram</string>
     <string name="fg_menu_threads">threads</string>
     <string name="fg_menu_email">email</string>
+    <string name="fg_menu_cerrar">Cerrar menú</string>
 
     <!--login textos-->
     <string name="login_imagen">imagen</string>

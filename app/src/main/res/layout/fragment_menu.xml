@@ -10,15 +10,15 @@
     <!-- Botón para cerrar el menú (arriba a la izquierda) -->
     <ImageView
         android:id="@+id/btnCloseMenu"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:clickable="true"
-        android:contentDescription="@string/menu"
+        android:contentDescription="@string/fg_menu_cerrar"
         android:focusable="true"
-        android:padding="4dp"
+        android:padding="8dp"
         android:src="@drawable/menu_active"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -42,9 +42,10 @@
             android:layout_height="52dp"
             android:clickable="true"
             android:focusable="true"
-            app:cardBackgroundColor="@color/white"
+            app:cardBackgroundColor="?attr/colorSurface"
             app:cardCornerRadius="14dp"
-            app:cardElevation="4dp">
+            app:cardElevation="4dp"
+            android:contentDescription="@string/fg_menu_modo_noche">
 
             <ImageView
                 android:layout_width="30dp"
@@ -59,12 +60,12 @@
             android:id="@+id/btnPreferences"
             style="@style/Widget.Material3.Button.OutlinedButton"
             android:layout_width="180dp"
-            android:layout_height="44dp"
+            android:layout_height="48dp"
             android:layout_marginTop="20dp"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="?attr/colorSurface"
             android:fontFamily="serif"
             android:text="@string/fg_menu_preferencias"
-            android:textColor="@color/black"
+            android:textColor="?attr/colorOnSurface"
             android:textSize="14sp"
             app:cornerRadius="14dp"
             app:strokeColor="@color/midnight_violet" />
@@ -74,7 +75,7 @@
             android:id="@+id/btnHelp"
             style="@style/Widget.Material3.Button.OutlinedButton"
             android:layout_width="180dp"
-            android:layout_height="44dp"
+            android:layout_height="48dp"
             android:layout_marginTop="12dp"
             android:backgroundTint="@color/white"
             android:fontFamily="serif"
@@ -91,7 +92,7 @@
             android:layout_marginTop="24dp"
             android:fontFamily="monospace"
             android:text="@string/fg_menu_escribenos"
-            android:textColor="@color/black"
+            android:textColor="@color/midnight_violet"
             android:textSize="11sp"
             android:textStyle="italic" />
 
@@ -104,31 +105,31 @@
 
             <ImageView
                 android:id="@+id/btnInstagram"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
                 android:contentDescription="@string/fg_menu_instagram"
                 android:focusable="true"
                 android:padding="3dp"
-                android:src="#524848"/>
+                android:src="@drawable/instagram"/>
 
             <ImageView
                 android:id="@+id/btnThreads"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_marginStart="20dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
                 android:contentDescription="@string/fg_menu_threads"
                 android:focusable="true"
                 android:padding="3dp"
-                android:src="#665858" />
+                android:src="@drawable/threads"/>
 
             <ImageView
                 android:id="@+id/btnEmail"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_marginStart="20dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"

@@ -33,13 +33,13 @@ object TopLibros {
 
     private val libros = listOf(
         LibroTop("Circe", "Madeline Miller", Genero.FANTASIA, R.mipmap.circe_portada),
-        LibroTop("Alas de sangre", "Rebecca Yarros", Genero.FANTASIA),
-        LibroTop("It", "Stephen King", Genero.TERROR),
-        LibroTop("Drácula", "Bram Stoker", Genero.TERROR),
-        LibroTop("Orgullo y prejuicio", "Jane Austen", Genero.ROMANCE),
-        LibroTop("Romper el círculo", "Colleen Hoover", Genero.ROMANCE),
-        LibroTop("1984", "George Orwell", Genero.DISTOPIA),
-        LibroTop("Los juegos del hambre", "Suzanne Collins", Genero.DISTOPIA)
+        LibroTop("Alas de sangre", "Rebecca Yarros", Genero.FANTASIA, R.drawable.portada_alas_sangre),
+        LibroTop("It", "Stephen King", Genero.TERROR, R.drawable.portada_it),
+        LibroTop("Drácula", "Bram Stoker", Genero.TERROR, R.drawable.portada_dracula),
+        LibroTop("Orgullo y prejuicio", "Jane Austen", Genero.ROMANCE, R.drawable.portada_orgullo_prejuicio),
+        LibroTop("Romper el círculo", "Colleen Hoover", Genero.ROMANCE, R.drawable.portada_romper_circulo),
+        LibroTop("1984", "George Orwell", Genero.DISTOPIA, R.drawable.portada_1984),
+        LibroTop("Los juegos del hambre", "Suzanne Collins", Genero.DISTOPIA, R.drawable.portada_juegos_hambre)
     )
 
     /**

@@ -13,16 +13,16 @@ object LibrosRepositorio {
     init {
         // Leyendo
         anadir("Circe", "Madeline Miller", 350, 120, ListaLibro.LEYENDO, R.mipmap.circe_portada)
-        anadir("El nombre del viento", "Patrick Rothfuss", 880, 412, ListaLibro.LEYENDO)
-        anadir("Sapiens", "Yuval Noah Harari", 496, 60, ListaLibro.LEYENDO)
+        anadir("El nombre del viento", "Patrick Rothfuss", 880, 412, ListaLibro.LEYENDO, R.drawable.portada_nombre_viento)
+        anadir("Sapiens", "Yuval Noah Harari", 496, 60, ListaLibro.LEYENDO, R.drawable.portada_sapiens)
         // Leídos
-        anadir("La canción de Aquiles", "Madeline Miller", 384, 384, ListaLibro.LEIDOS)
-        anadir("Orgullo y prejuicio", "Jane Austen", 432, 432, ListaLibro.LEIDOS)
-        anadir("Cien años de soledad", "Gabriel García Márquez", 496, 496, ListaLibro.LEIDOS)
+        anadir("La canción de Aquiles", "Madeline Miller", 384, 384, ListaLibro.LEIDOS, R.drawable.portada_cancion_aquiles)
+        anadir("Orgullo y prejuicio", "Jane Austen", 432, 432, ListaLibro.LEIDOS, R.drawable.portada_orgullo_prejuicio)
+        anadir("Cien años de soledad", "Gabriel García Márquez", 496, 496, ListaLibro.LEIDOS, R.drawable.portada_anos_soledad)
         // Quiero leer
-        anadir("Babel", "R. F. Kuang", 560)
-        anadir("El infinito en un junco", "Irene Vallejo", 452)
-        anadir("Proyecto Hail Mary", "Andy Weir", 496)
+        anadir("Babel", "R. F. Kuang", 560, portada= R.drawable.portada_babel)
+        anadir("El infinito en un junco", "Irene Vallejo", 452, portada= R.drawable.portada_infinito_junco)
+        anadir("Proyecto Hail Mary", "Andy Weir", 496, portada= R.drawable.portada_hil_mary)
     }
 
     fun anadir(
