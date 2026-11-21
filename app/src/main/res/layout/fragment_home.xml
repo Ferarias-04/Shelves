@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipToPadding="false"
@@ -352,6 +353,7 @@
             android:scrollbars="none">
 
             <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipsGeneros"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:selectionRequired="true"
@@ -359,6 +361,7 @@
                 app:singleSelection="true">
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chipsGeneral"
                     style="@style/Widget.Material3.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -366,24 +369,28 @@
                     android:text="@string/fg_home_genero_general" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chipsTerror"
                     style="@style/Widget.Material3.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/fg_home_genero_terror" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chipsRomance"
                     style="@style/Widget.Material3.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/fg_home_genero_romance" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chipsFantasia"
                     style="@style/Widget.Material3.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/fg_home_genero_fantasia" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chipsDistopia"
                     style="@style/Widget.Material3.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -392,6 +399,7 @@
         </HorizontalScrollView>
 
         <!-- Portadas -->
+        <!--
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -431,6 +439,15 @@
                     app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Small" />
             </LinearLayout>
         </HorizontalScrollView>
-
+        -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTopLibros"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:nestedScrollingEnabled="false"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_portada"/>
     </LinearLayout>
 </ScrollView>

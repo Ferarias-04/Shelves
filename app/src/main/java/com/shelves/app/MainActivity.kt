@@ -9,6 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.core.view.isVisible
 
 class MainActivity : AppCompatActivity() {
 
@@ -112,6 +113,12 @@ class MainActivity : AppCompatActivity() {
             .addToBackStack(null) // "atrás" vuelve a la pestaña en la que estabas
             .commit()
     }
+
+    fun mostrarBarraNavegacion(visible: Boolean){
+        findViewById<View>(R.id.bottom_bar).isVisible = visible
+    }
+    fun menuAbierto(): Boolean =
+        supportFragmentManager.findFragmentById(R.id.overlay_container) != null
 
     companion object {
         private const val TAG_MENU = "menu"

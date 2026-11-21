@@ -82,5 +82,6 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:itemCount="5"
         tools:listitem="@layout/item_libro" />
-
+    <include layout="@layout/barra_edicion"
+        android:visibility="gone"/>
 </LinearLayout>
