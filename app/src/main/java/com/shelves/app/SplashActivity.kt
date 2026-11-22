@@ -10,7 +10,11 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 /**
- * Pantalla inicial: anima el logo de Shelves y después abre el Login.
+ * Pantalla inicial de la app (es la activity LAUNCHER del manifest).
+ *
+ * Muestra el logo de Shelves con una animación de entrada (fundido y escala, definida en
+ * `res/anim/splash_logo.xml`); al terminar aparece el lema y se abre el Login.
+ * Si el usuario tiene desactivadas las animaciones del sistema, se salta la animación.
  */
 class SplashActivity : AppCompatActivity() {
 
@@ -44,11 +48,21 @@ class SplashActivity : AppCompatActivity() {
         logo.startAnimation(anim)
     }
 
+    /**
+     * Abre el Login y cierra el Splash con finish(), para que al pulsar "atrás"
+     * no se vuelva a ver la animación.
+     */
     private fun irAlLogin() {
         startActivity(Intent(this, LoginActivity::class.java))
         finish() // para que al pulsar "atrás" no se vuelva al splash
     }
 
+    /**
+     * Comprueba si el usuario ha quitado las animaciones en los ajustes del móvil
+     * (opción de accesibilidad pensada para personas a las que el movimiento les molesta o marea).
+     *
+     * @return true si las animaciones están desactivadas.
+     */
     private fun animacionesDesactivadas(): Boolean =
         Settings.Global.getFloat(contentResolver, Settings.Global.ANIMATOR_DURATION_SCALE, 1f) == 0f
 }

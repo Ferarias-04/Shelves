@@ -8,6 +8,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+/**
+ * Pantalla de inicio de sesión. Se abre después del Splash.
+ *
+ * Comprueba que el usuario y la contraseña no estén vacíos antes de entrar en la app
+ * ([MainActivity]). Todavía no hay usuarios reales, así que cualquier dato sirve.
+ * También da acceso a la pantalla de registro ([RegistreActivity]).
+ */
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +40,13 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, RegistreActivity::class.java))
         }
     }
-    //Marca en rojo los campos vacíos y devuelve true si están rellenados
+    /**
+     * Revisa que los campos tengan texto. Los que están vacíos se marcan con un error en rojo,
+     * para que el usuario vea qué le falta sin tener que adivinarlo.
+     *
+     * @param campos campos de texto que hay que comprobar.
+     * @return true si todos están rellenos, false si falta alguno.
+     */
     private fun camposRellenos(vararg campos: EditText): Boolean {
         var ok = true
         for(campo in campos) {

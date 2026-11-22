@@ -5,7 +5,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 
-/** Pantalla de Preferencias (se abre desde el menú). */
+/**
+ * Pantalla de Preferencias. Se abre desde el menú y se muestra en el contenedor central,
+ * así que el botón "atrás" vuelve a la pestaña en la que estaba el usuario.
+ *
+ * De momento solo funciona "Cerrar sesión", que vuelve al Login y borra la pila de
+ * pantallas para que no se pueda volver a entrar con "atrás".
+ */
 class PreferenciasFragment : Fragment(R.layout.fragment_preferencias) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

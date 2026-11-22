@@ -6,9 +6,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 /**
- * Holder de una portada de la lista horizontal de Inicio (item_portada.xml).
+ * Holder de una portada de la lista "Libros más leídos este mes".
  *
- * @param itemView vista de la fila ya inflada.
+ * Guarda las vistas de item_portada.xml (imagen y título) para no buscarlas con
+ * findViewById cada vez que la portada se reutiliza al hacer scroll.
+ *
+ * @param itemView vista de la portada ya inflada.
  */
 class PortadaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 

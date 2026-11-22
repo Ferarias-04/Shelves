@@ -9,8 +9,14 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 
 /**
- * Menú de la app. Se abre con el botón hamburguesa, por encima de todas las pantallas.
- * Da acceso a Preferencias, Ayuda, modo oscuro y contacto.
+ * Menú principal de la app. No es un Navigation Drawer, sino un fragment propio que
+ * [MainActivity] coloca en `overlay_container`, encima de todas las pantallas, al pulsar
+ * el botón hamburguesa.
+ *
+ * Desde aquí se abre Preferencias o Ayuda (con [MainActivity.abrirSeccion]), se cambia
+ * entre modo claro y oscuro, y se accede a los enlaces de contacto (de momento solo
+ * muestran un aviso). El menú se cierra con su botón o con el "atrás" del móvil,
+ * porque se guarda en el back stack.
  */
 class MenuFragment : Fragment(R.layout.fragment_menu) {
 

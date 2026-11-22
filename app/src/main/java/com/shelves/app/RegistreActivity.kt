@@ -9,7 +9,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-
+/**
+ * Pantalla de registro de un usuario nuevo.
+ *
+ * Al pulsar "Registrarse" comprueba que todos los campos estén rellenos y que las dos
+ * contraseñas coincidan; si algo falla, el error se muestra en el propio campo.
+ * Si todo está bien, abre [MainActivity] y borra Login y Registro de la pila de pantallas,
+ * para que el botón "atrás" no vuelva al formulario.
+ */
 class RegistreActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
