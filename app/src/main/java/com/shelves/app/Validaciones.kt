@@ -1,12 +1,11 @@
-package com.shelves.app
-
-import android.util.Patterns
-
-/*
+/**
  * Funciones de extensión para validar los campos de Login y Registro.
  * Se llaman directamente sobre el texto, por ejemplo: email.esEmailValido().
  * Las usan los dos ViewModel, así ambas pantallas validan con las mismas reglas.
  */
+package com.shelves.app
+
+import android.util.Patterns
 
 /** Usuario: de 3 a 20 caracteres; solo letras, números, punto o guion bajo. */
 fun String.esUsuarioValido(): Boolean =
