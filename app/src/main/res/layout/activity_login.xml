@@ -10,11 +10,11 @@
 
     <ImageView
         android:id="@+id/imglogin"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="280dp"
         android:contentDescription="@string/login_imagen"
         android:scaleType="centerCrop"
-        android:src="@mipmap/fondo_login"
+        android:src="@drawable/fondo_amplio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
