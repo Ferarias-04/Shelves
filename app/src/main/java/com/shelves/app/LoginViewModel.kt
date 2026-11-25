@@ -21,7 +21,8 @@ import androidx.lifecycle.ViewModel
  * @see LoginActivity
  */
 class LoginViewModel : ViewModel() {
-
+    /** Repositorio donde se comprueba si el usuario y la contraseña existen. */
+    private val repositorio = UsuariosRepositorio
     /** Versión modificable de {@link errorUsuario}. Solo se cambia desde este ViewModel. */
     private val _errorUsuario = MutableLiveData<Int?>()
 
@@ -61,6 +62,17 @@ class LoginViewModel : ViewModel() {
      * @param usuario texto escrito en el campo usuario.
      * @param contrasena texto escrito en el campo contraseña.
      */
+    /**
+     * Valida los datos que ha escrito el usuario y actualiza los LiveData con el resultado.
+     *
+     * Primero comprueba cada campo: que no esté vacío y que tenga el formato correcto,
+     * usando las funciones de extensión de Validaciones.kt. Si el formato es correcto,
+     * pregunta al repositorio si el usuario y la contraseña corresponden a una cuenta;
+     * si no, muestra el error en el campo contraseña.
+     *
+     * @param usuario texto escrito en el campo usuario.
+     * @param contrasena texto escrito en el campo contraseña.
+     */
     fun login(usuario: String, contrasena: String) {
         val errorU = when {
             usuario.isBlank() -> R.string.error_campo_obligatorio
@@ -72,8 +84,14 @@ class LoginViewModel : ViewModel() {
             !contrasena.esPasswordValida() -> R.string.error_password_formato
             else -> null
         }
+        val formatoCorrecto = errorU == null && errorC == null
+        val errorLogin =
+            if (formatoCorrecto && !repositorio.comprobarLogin(usuario.trim(), contrasena))
+                R.string.error_login_incorrecto
+            else null
+
         _errorUsuario.value = errorU
-        _errorContrasena.value = errorC
-        _loginCorrecto.value = errorU == null && errorC == null
+        _errorContrasena.value = errorC ?: errorLogin
+        _loginCorrecto.value = formatoCorrecto && errorLogin == null
     }
 }

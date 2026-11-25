@@ -95,6 +95,8 @@
     <string name="error_email_formato">Introduce un email válido</string>
     <string name="error_password_formato">Mínimo 8 caracteres, con letras y números</string>
     <string name="error_nombre_formato">Solo letras, de 2 a 40 caracteres</string>
+    <string name="error_usuario_existe">Este nombre de usuario ya existe</string>
+    <string name="error_login_incorrecto">Usuario o contraseña incorrectos</string>
 
     <!-- hamburguesa-->
     <string name="menu_proximamente">Próximamente</string>
