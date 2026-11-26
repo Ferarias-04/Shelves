@@ -39,7 +39,6 @@ En la Actividad 06 la app ya funcionaba: pantalla de inicio animada, navegación
 
 En esta versión hemos **reorganizado el Login y el Registro con el patrón MVVM**. Ahora cada pantalla tiene un **ViewModel** que valida los datos y avisa a la Activity mediante **LiveData**. También hay un **repositorio de usuarios**, así que el Registro guarda la cuenta y el Login comprueba que exista. Lo explicamos en la sección **🏛️ Arquitectura MVVM**.
 
-🎥 **Vídeo de la práctica:** [ver en YouTube](ENLACE_DEL_VIDEO)
 
 ---
 
