@@ -7,7 +7,8 @@
   <img src="https://img.shields.io/badge/Android-34A853?style=for-the-badge&logo=android&logoColor=white" alt="Android">
   <img src="https://img.shields.io/badge/Material%203-397367?style=for-the-badge&logo=materialdesign&logoColor=white" alt="Material 3">
   <img src="https://img.shields.io/badge/minSdk-24-3C222D?style=for-the-badge" alt="minSdk 24">
-  <img src="https://img.shields.io/badge/Actividad-06-B0E0FD?style=for-the-badge&labelColor=3C222D" alt="Actividad 06">
+  <img src="https://img.shields.io/badge/Arquitectura-MVVM-397367?style=for-the-badge&labelColor=3C222D" alt="Arquitectura MVVM">
+  <img src="https://img.shields.io/badge/Actividad-07.1-B0E0FD?style=for-the-badge&labelColor=3C222D" alt="Actividad 07.1">
 </p>
 
 # Shelves 📚
@@ -20,7 +21,7 @@ Tiene una parte social sencilla y sin ruido: solo te puede seguir quien conoce t
 
 | | |
 |---|--|
-| **Adriana Vallespí** | 
+| **Adriana Vallespí** |
 | **Fernanda Arias** |
 
 Proyecto del ciclo de **Desarrollo de Aplicaciones Multiplataforma (DAM)** del Institut TIC de Barcelona.
@@ -31,9 +32,14 @@ Proyecto del ciclo de **Desarrollo de Aplicaciones Multiplataforma (DAM)** del I
 |---|---|---|
 | 04 | Prototipo de baja fidelidad | ✅ |
 | 05 | Interfaz del prototipo en XML | ✅ |
-| **06** | **Menús, navegación y listas dinámicas** | ✅ **Esta versión** |
+| 06 | Menús, navegación y listas dinámicas | ✅ |
+| **07.1** | **ViewModel y observabilidad (MVVM)** | ✅ **Esta versión** |
 
-En la Actividad 05 las pantallas eran solo diseño. En esta versión la app **ya funciona**: tiene pantalla de inicio animada, navegación entre todas las pantallas, un menú propio y dos listas dinámicas con eventos.
+En la Actividad 06 la app ya funcionaba: pantalla de inicio animada, navegación entre todas las pantallas, un menú propio y dos listas dinámicas con eventos.
+
+En esta versión hemos **reorganizado el Login y el Registro con el patrón MVVM**. Ahora cada pantalla tiene un **ViewModel** que valida los datos y avisa a la Activity mediante **LiveData**. También hay un **repositorio de usuarios**, así que el Registro guarda la cuenta y el Login comprueba que exista. Lo explicamos en la sección **🏛️ Arquitectura MVVM**.
+
+🎥 **Vídeo de la práctica:** [ver en YouTube](ENLACE_DEL_VIDEO)
 
 ---
 
@@ -91,9 +97,136 @@ La app tiene **una activity contenedora** (`MainActivity`) y casi todas las pant
 
 ### 🔐 Login y Registro
 
-- Si un campo está vacío, se marca con un **error en rojo** en el propio campo.
-- En el Registro también se comprueba que las dos contraseñas coincidan.
+- Los datos de cada campo se validan (que no estén vacíos y que tengan el formato correcto). Si algo falla, se marca con un **error en rojo** en el propio campo.
+- El Registro guarda el usuario nuevo y el Login comprueba que la cuenta exista.
 - Al entrar en la app se borran el Login y el Registro de la pila de pantallas, así el botón "atrás" cierra la app en vez de volver al formulario.
+
+Desde la Actividad 07.1 estas dos pantallas siguen el patrón **MVVM**. Se explica con detalle en la sección siguiente.
+
+---
+
+## 🏛️ Arquitectura MVVM (Actividad 07.1)
+
+### ¿Qué es MVVM?
+
+MVVM (*Model – View – ViewModel*) es una forma de organizar el código de una pantalla en tres partes, cada una con una sola responsabilidad:
+
+| Capa | Qué hace | En Shelves |
+|---|---|---|
+| **Model** | Los datos y dónde se guardan | `Usuario`, `UsuariosRepositorio` |
+| **View** | Lo que ve el usuario. Muestra datos y recoge clics, pero no decide nada | `LoginActivity`, `RegistreActivity` |
+| **ViewModel** | La lógica de la pantalla. Recibe lo que escribe el usuario, lo valida, habla con el repositorio y publica el resultado | `LoginViewModel`, `RegistreViewModel` |
+
+Antes de esta práctica, las Activities hacían todo: leían los campos, comprobaban si estaban vacíos y decidían si se podía entrar. Ahora la Activity solo hace dos cosas: **pasar el texto al ViewModel** y **mostrar lo que el ViewModel le dice**.
+
+```mermaid
+flowchart LR
+    U((Usuario)) -->|escribe y pulsa| V["View<br/>LoginActivity / RegistreActivity"]
+    V -->|"login(...) / registrar(...)"| VM["ViewModel<br/>LoginViewModel / RegistreViewModel"]
+    VM -->|usa| VAL[[Validaciones.kt<br/>funciones de extensión]]
+    VM -->|consulta y guarda| R[(UsuariosRepositorio)]
+    VM -.->|"LiveData (errores, correcto)"| V
+    V -.->|"observe()"| VM
+```
+
+Las flechas continuas son llamadas directas y las discontinuas son la **observación**: el ViewModel no conoce a la Activity ni le da órdenes. Solo cambia el valor de sus LiveData, y la Activity, que está "escuchando", reacciona.
+
+### ViewModel
+
+Un `ViewModel` es una clase que guarda el estado y la lógica de una pantalla. Lo más importante es que **sobrevive a los cambios de configuración**. Cuando se gira el móvil, Android destruye la Activity y la vuelve a crear, pero el ViewModel no se destruye. Por eso, si hay un error en un campo y se gira el móvil, el error sigue ahí.
+
+En la Activity lo obtenemos así:
+
+```kotlin
+private val viewModel: LoginViewModel by viewModels()
+```
+
+`by viewModels()` crea el ViewModel la primera vez y, si la Activity se recrea, devuelve el mismo objeto en vez de uno nuevo.
+
+El ViewModel **nunca usa `Context`** (ni `getString`, ni vistas). Así no depende de la Activity y no hay riesgo de que se quede con una referencia a una pantalla que ya no existe.
+
+### LiveData y observabilidad
+
+`LiveData` es un contenedor de un valor que **avisa a quien lo observa cada vez que cambia**. Además, tiene en cuenta el ciclo de vida: solo avisa a la Activity cuando está visible, y deja de avisar sola cuando se destruye, así que no hay que desuscribirse a mano.
+
+En cada ViewModel usamos siempre la misma estructura:
+
+```kotlin
+private val _errorUsuario = MutableLiveData<Int?>()   // privado: solo el ViewModel lo cambia
+val errorUsuario: LiveData<Int?> = _errorUsuario      // público: la Activity solo puede leerlo
+```
+
+- `MutableLiveData` se puede modificar. Lo dejamos **privado** para que solo el ViewModel pueda cambiar el estado.
+- `LiveData` es de solo lectura. Es lo que ve la Activity.
+
+En la Activity nos suscribimos con `observe()`:
+
+```kotlin
+viewModel.errorUsuario.observe(this) { error ->
+    etUsuario.error = error?.let { getString(it) }
+}
+```
+
+**Qué guardan nuestros LiveData:**
+
+| LiveData | Tipo | Significado |
+|---|---|---|
+| `errorUsuario`, `errorContrasena`… (uno por campo) | `Int?` | El id del texto de error (`R.string.error_...`), o `null` si el campo está bien. Guardamos el id y no el texto porque el ViewModel no debe usar `Context`; la Activity convierte el id en texto con `getString()` |
+| `loginCorrecto` / `registroCorrecto` | `Boolean` | Pasa a `true` cuando todo es correcto. La Activity lo observa y abre `MainActivity` |
+
+La navegación también se hace **dentro del observer**, no en el clic del botón: el botón solo avisa al ViewModel, y es el ViewModel quien decide si se puede entrar.
+
+### Repositorio de usuarios (Model)
+
+`UsuariosRepositorio` es **el único sitio de la app que guarda y consulta usuarios**. Los ViewModels no saben dónde están los datos; solo llaman a sus funciones:
+
+| Función | Qué hace |
+|---|---|
+| `existeUsuario(nombre)` | Dice si ese nombre de usuario ya está registrado |
+| `registrar(usuario)` | Guarda un usuario nuevo |
+| `comprobarLogin(nombre, contraseña)` | Dice si el usuario y la contraseña corresponden a una cuenta |
+
+De momento los usuarios se guardan en una **lista en memoria**, así que se borran al cerrar la app. Más adelante la cambiaremos por una base de datos o una API, y solo habrá que modificar el repositorio: los ViewModels y las Activities seguirán igual. Es un `object`, así que el Login y el Registro comparten los mismos datos y no hace falta una Factory para pasárselo al ViewModel.
+
+Para probar el login sin registrarse hay un usuario precargado: **`demo` / `shelves2026`**.
+
+### Funciones de extensión (`Validaciones.kt`)
+
+Las reglas de validación están en funciones de extensión de `String`. Una función de extensión añade un método a una clase que no es nuestra sin modificarla, así que se puede escribir `email.esEmailValido()` como si fuera una función propia de `String`. Las usan los dos ViewModels, y por eso el Login y el Registro validan exactamente igual.
+
+| Función | Regla |
+|---|---|
+| `esUsuarioValido()` | De 3 a 20 caracteres: letras, números, `.` o `_` |
+| `esNombreValido()` | Letras (también con tildes), espacios, `'` o `-`; de 2 a 40 caracteres |
+| `esEmailValido()` | Formato de email (`algo@dominio.ext`) |
+| `esPasswordValida()` | Mínimo 8 caracteres, con al menos una letra y un número |
+
+### Validaciones de cada pantalla
+
+Cada campo se comprueba en este orden: **primero que no esté vacío y después el formato**. Así el usuario recibe el mensaje más útil en cada momento.
+
+**Login**
+
+| Campo | Comprobaciones |
+|---|---|
+| Usuario | Obligatorio → formato de usuario |
+| Contraseña | Obligatoria → formato de contraseña → que la cuenta exista en el repositorio (*"Usuario o contraseña incorrectos"*) |
+
+**Registro**
+
+| Campo | Comprobaciones |
+|---|---|
+| Usuario | Obligatorio → formato de usuario → que no exista ya (*"Este nombre de usuario ya existe"*) |
+| Nombre / Apellido | Obligatorio → formato de nombre |
+| Email | Obligatorio → formato de email |
+| Contraseña | Obligatoria → formato de contraseña |
+| Confirmar contraseña | Obligatoria → que sea igual que la contraseña |
+
+Si todo es correcto, el Registro guarda el usuario en el repositorio y entra en la app.
+
+### Documentación del código
+
+Las clases ViewModel, cada LiveData, el repositorio y las funciones de validación están comentados en formato **JavaDoc/KDoc** (`/** ... */`, con `@param`, `@return` y `@see`). Explican para qué sirve cada parte y por qué está hecha así.
 
 ### ⬇️ Barra inferior
 
@@ -106,9 +239,9 @@ Tiene tres pestañas: **Inicio · Biblioteca · Perfil**. Al pulsar una, `MainAc
 1. Al pulsar ☰, `MainActivity` añade `MenuFragment` a `overlay_container` (un contenedor que está por encima de todo) con una animación que lo desliza desde la izquierda.
 2. La transacción se guarda en el **back stack**, por eso el menú se cierra tanto con su botón como con el "atrás" del móvil.
 3. Desde el menú se puede:
-    - Abrir **Preferencias** o **Ayuda**. Se cierra el menú y la sección se abre en el contenedor central; con "atrás" se vuelve a la pestaña en la que estabas.
-    - Cambiar entre **modo claro y oscuro**.
-    - Pulsar los enlaces de **contacto** (Instagram, Threads y email). De momento solo muestran un aviso.
+   - Abrir **Preferencias** o **Ayuda**. Se cierra el menú y la sección se abre en el contenedor central; con "atrás" se vuelve a la pestaña en la que estabas.
+   - Cambiar entre **modo claro y oscuro**.
+   - Pulsar los enlaces de **contacto** (Instagram, Threads y email). De momento solo muestran un aviso.
 
 **Funciones de `MainActivity` que controlan la navegación:**
 
@@ -228,8 +361,13 @@ El diseño visual de la app es de **Adriana Vallespí**, que lo hizo en Figma a 
 ```
 app/src/main/java/com/shelves/app/
 ├── SplashActivity.kt        Pantalla inicial animada
-├── LoginActivity.kt         Inicio de sesión
-├── RegistreActivity.kt      Registro
+├── LoginActivity.kt         Inicio de sesión (View)
+├── LoginViewModel.kt        Lógica y LiveData del login (ViewModel)
+├── RegistreActivity.kt      Registro (View)
+├── RegistreViewModel.kt     Lógica y LiveData del registro (ViewModel)
+├── Usuario.kt               Modelo: datos de un usuario
+├── UsuariosRepositorio.kt   Repositorio de usuarios (Model)
+├── Validaciones.kt          Funciones de extensión para validar campos
 ├── MainActivity.kt          Contenedor: barra inferior + menú + fragments
 ├── MenuFragment.kt          Menú hamburguesa
 ├── HomeFragment.kt          Inicio (carrusel de más leídos)
@@ -247,7 +385,7 @@ app/src/main/java/com/shelves/app/
 └── PortadaViewHolder.kt     Holder del carrusel
 ```
 
-Las clases y funciones principales están documentadas con comentarios **KDoc** (el equivalente de JavaDoc en Kotlin).
+Las clases y funciones principales están documentadas con comentarios en formato **JavaDoc** (en Kotlin se llama KDoc).
 
 ---
 
@@ -259,6 +397,6 @@ Las clases y funciones principales están documentadas con comentarios **KDoc** 
    ```
 2. Abrir la carpeta `Shelves` en **Android Studio** y esperar a que sincronice Gradle.
 3. Ejecutar la app (▶) en un emulador o en un móvil.
-4. Se puede entrar con **cualquier usuario y contraseña**, porque todavía no hay usuarios reales.
+4. Para entrar, usa el usuario de prueba **`demo` / `shelves2026`**, o crea una cuenta desde *Sign Up*. Las cuentas nuevas se guardan solo mientras la app está abierta.
 
 **Requisitos:** Android Studio reciente · `minSdk` 24 (Android 7.0) · Kotlin.
